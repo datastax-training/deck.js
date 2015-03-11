@@ -1,0 +1,196 @@
+@import "reset.css";
+@import "font.css";
+@import "mixins.less"; 
+
+// Global Styles
+html {font-size: 62.5%;}
+body {.font-size(2); .helvetica; color: @base; background: #F5F5F5;}
+// Global font styles
+em {font-style: italic;}
+
+// Responsive sized typography!
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+}
+h1 {.font-size(7.2); .line-height(8); margin-bottom: 2rem;}
+h2 {.font-size(4.2); .line-height(5); margin-bottom: 1rem;}
+h3 {.font-size(3.8); .line-height(4.2); margin-bottom: .75rem;}
+h4 {.font-size(3); .line-height(3.8);}
+h5 {.font-size(2.6); .line-height(3.5);}
+
+// Deck Container Overrides
+.deck-container {font-weight: 300;
+  >.slide {padding: 75px;}
+}
+// To override the need to modify the padding if there is not a class on the body.
+.csstransforms .deck-container.deck-scale:not(.deck-menu) > .slide {padding-bottom: 75px;}
+
+// Slide Layouts
+.deck-slide-scaler {width: 100vw;}
+.slide {.border-box; width: 100vw; .flex-display; .align-items(stretch);
+  // Title Slide 
+  &#title-slide {background: url(images/blue.svg); background-size: cover; color: white; .align-items(center);
+    h1 {text-align: left; color: white;} 
+  }
+  // Slides between sections
+  &.transition {color: white; .align-items(center);
+
+  }
+  // Side by Side
+  &.side-by-side {
+    .split-container {.flex-display; align-self: stretch;}
+    .split {.flex(1 0 auto); width: 50%;
+      // &.left {background: @purple;}
+      img {.align-self(center);}
+    }
+  }
+
+  // Stacked 
+  &.stacked {}
+  // Full Image
+  &.image {}
+
+  // Background colors for slides
+  &.blue {background: @blue;}
+  &.orange {background: @orange;}
+  &.green {background: @green;} 
+  &.purple {background: @purple;}
+  &.gray {background: @gray;}  
+  &.blue, &.orange, &.green, &.purple, &.gray, &#title-slide {
+    h1, h2, h3, h4, h5, h6 {
+      color: @white;
+    }
+  }
+  // Slide typography 
+  &:not(.title) {
+    h1 {margin-bottom: 3rem;}
+  }
+  h1 {color: @blue;}
+  h2 {color: @orange;}
+  h3 {color: @green;}
+  h4 {color: @purple;}
+
+  p {.font-size(2.5); .line-height(3.5); margin-bottom: 1rem;}
+
+  // Change colors of text with these classes:
+  .blue {color: @blue;}
+  .orange {color: @orange;}
+  .green {color: @green;}
+  .purple {color: @purple;}
+  .gray {color: @gray;}
+
+
+  // List Items with cool node icons
+  ul {margin: .5em .5em 1em .5em;
+    li {padding-left: 1.2em;.font-size(2.5); .line-height(3.2); list-style-type: none;
+      &:before {content: "\e782";font-family: 'datastax'; display: inline-block; width: 1.2em; margin-left: -1.2em; .font-size(1.8); color: @black50;}
+      ul {margin: .5em;}
+    }
+  }
+
+}
+
+// Header 
+.deck-header {background: @base; position: fixed; top: 0vh; width: 100%; height: 50px; z-index: 5000; color: @white; .flex-display; .font-size(1.4); .align-items(center);
+  .flex-element {.flex(1 0 auto); margin: .5em 1em;
+    &.deck-brand {height: 35px;
+      a {background: url(images/brand-white.svg) no-repeat center right; text-indent: -9000px; display: block; margin: auto; height: 100%; .justify-content(flex-end);}
+    }
+  }
+}
+
+// Footer 
+footer {background: @base; position: fixed; bottom: 0vh; width: 100%; height: 50px; z-index: 5000; color: @white; .flex-display; .font-size(1.4); .align-items(center);
+  .flex-element {.flex(1 0 auto); margin: .5em 1em;
+    &.deck-progress {text-align: right;
+      .deck-title {font-weight: 700; margin-left: 20px;}
+    }
+  }
+}
+
+
+// Things I'm not sure we need right now:
+// img, iframe, video {display: block; max-width: 100%;}
+// video, iframe, img {display: block; margin: 0 auto;}
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 1em;
+  border: 1px solid #888;
+}
+
+code {
+  color: #888;
+}
+
+blockquote {font-size: 2em; font-style: italic; padding: 1em 2em; color: #000; border-left: 5px solid #ccc;
+  p {margin: 0;}
+  cite {font-size: .5em; font-style: normal; font-weight: bold; color: #888;
+  }
+}
+
+// Fancy text selection colors
+::-moz-selection {background: @purple; color: @white;}
+::selection {background: @purple; color: @white;}
+
+a, a:hover, a:focus, a:active, a:visited {
+  color: #c00;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+
+.slide .deck-before, .slide .deck-previous {
+  opacity: 0.4;
+}
+.slide .deck-before:not(.deck-child-current) .deck-before, .slide .deck-before:not(.deck-child-current) .deck-previous, .slide .deck-previous:not(.deck-child-current) .deck-before, .slide .deck-previous:not(.deck-child-current) .deck-previous {
+  opacity: 1;
+}
+.slide .deck-child-current {
+  opacity: 1;
+}
+
+
+// Navigation Links!
+.deck-prev-link, .deck-next-link {position: absolute;z-index: 3;top: 50%;width: 42px;height: 42px;margin: -20px 10px 0;text-align: center;text-decoration: none;border-radius: 50%;.transition(opacity, .2s, ease-in-out); .opacity(0);
+  i {.font-size(4); color: @black30; padding: 0; .transition(color, .2s, ease-in-out);
+    &:hover {color: @black70;}
+  }
+  &:hover, &:focus {text-decoration: none;}
+}
+.deck-prev-link {left: 8px;}
+.deck-next-link {right: 8px;}
+
+// Show navigation links on hover of the page
+.deck-container {
+  &:hover {
+    .deck-prev-link, .deck-next-link {.opacity(1);
+      &:hover, &:focus {text-decoration: none;}
+      &.deck-nav-disabled {.hidden;}
+    }
+  }
+}
+.touch {
+  .deck-container {
+    &:hover {
+      .deck-prev-link, .deck-next-link {.hidden;}
+    }
+  }
+}
+
+@media print {
+  .deck-prev-link, .deck-next-link {
+    display: none !important;
+  }
+}
+
+.deck-menu .slide {
+  // background: #eee;
+}
+.deck-menu .deck-current, .no-touch .deck-menu .slide:hover {
+  // background: #ddf;
+}
