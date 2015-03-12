@@ -1,5 +1,4 @@
 @import "reset.css";
-
 @import "font.css";
 .border-box {
   -moz-box-sizing: border-box;
@@ -26,10 +25,16 @@ body {
   font-family: 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
   font-weight: 300;
   color: #435a60;
-  background: #F5F5F5;
+  background: #f5f5f5;
 }
 em {
   font-style: italic;
+}
+a:link {
+  color: #007a99;
+}
+a:hover {
+  color: #005166;
 }
 h1,
 h2,
@@ -98,7 +103,7 @@ h5 {
   -ms-align-items: stretch;
   align-items: stretch;
 }
-.slide.title {
+.slide#title-slide {
   background: url(images/blue.svg);
   background-size: cover;
   color: white;
@@ -107,7 +112,13 @@ h5 {
   -ms-align-items: center;
   align-items: center;
 }
-.slide.title h1 {
+.slide#title-slide h1,
+.slide#title-slide h2,
+.slide#title-slide h3,
+.slide#title-slide h4,
+.slide#title-slide h5,
+.slide#title-slide h6,
+.slide#title-slide p {
   text-align: left;
   color: white;
 }
@@ -159,37 +170,37 @@ h5 {
 .slide.green h1,
 .slide.purple h1,
 .slide.gray h1,
-.slide.title h1,
+.slide#title-slide h1,
 .slide.blue h2,
 .slide.orange h2,
 .slide.green h2,
 .slide.purple h2,
 .slide.gray h2,
-.slide.title h2,
+.slide#title-slide h2,
 .slide.blue h3,
 .slide.orange h3,
 .slide.green h3,
 .slide.purple h3,
 .slide.gray h3,
-.slide.title h3,
+.slide#title-slide h3,
 .slide.blue h4,
 .slide.orange h4,
 .slide.green h4,
 .slide.purple h4,
 .slide.gray h4,
-.slide.title h4,
+.slide#title-slide h4,
 .slide.blue h5,
 .slide.orange h5,
 .slide.green h5,
 .slide.purple h5,
 .slide.gray h5,
-.slide.title h5,
+.slide#title-slide h5,
 .slide.blue h6,
 .slide.orange h6,
 .slide.green h6,
 .slide.purple h6,
 .slide.gray h6,
-.slide.title h6 {
+.slide#title-slide h6 {
   color: #fafafa;
 }
 .slide:not(.title) h1 {
@@ -252,6 +263,22 @@ h5 {
 }
 .slide ul li ul {
   margin: .5em;
+}
+.slide .notes {
+  position: absolute;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fafafa;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  padding: 100px;
+  font-size: 50px;
+  font-size: 5rem;
+}
+.slide .notes li:before {
+  color: #fafafa;
 }
 .deck-header {
   background: #435a60;
