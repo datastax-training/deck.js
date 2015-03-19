@@ -133,6 +133,28 @@ footer {background: @base; position: fixed; bottom: 0vh; width: 100%; height: 50
   }
 }
 
+// Progress bar? 
+
+.deck-progressbar {
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:50px;
+  height:6px;
+  background:@lt-gray;
+}
+
+.deck-progressbar span {
+  position:absolute;
+  left:0;
+  top:0;
+  height:6px;
+  background: @orange;
+  width: 0px;
+  .border-radius(0 3px 3px 0);
+  .transition(width, 500ms, ease-in-out);
+}
+
 // Things I'm not sure we need right now:
 // img, iframe, video {display: block; max-width: 100%;}
 // video, iframe, img {display: block; margin: 0 auto;}

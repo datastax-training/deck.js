@@ -51,6 +51,12 @@
   filter: ~"alpha(opacity=@{opperc})";
 }
 
+.border-radius(@radius) {
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
 
 // Typography
 .helvetica {
