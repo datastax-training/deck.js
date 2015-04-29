@@ -110,6 +110,39 @@ h5 {.font-size(2.6); .line-height(3.5);}
     }
     p {.font-size(3.5); .line-height(4.5); margin-bottom: 1.8rem;}
   }
+
+  // Blocks for notes, tips and warnings
+  .admonitionblock {margin: 1.5em 0;
+    &.note, &.tip {
+      //blue
+      .icon-note::before, .icon-tip::before {content: "\ea0c"; color: @blue;}
+    }
+    &.important {
+      //purple
+      .icon-important::before {content: "\ea07"; color: @green;}
+    }
+    &.warning {
+      //yellow
+      .icon-warning::before {content: "\f08f"; color: @orange;}
+    }
+    &.caution {
+      //orange
+      .icon-caution::before {content: "\ea08"; color: @yellow;}
+    }
+    .icon {.font-size(3.5); padding: .25em; border-right: 3px solid @lt-gray;}
+    .content {vertical-align: middle; padding: .25em;}
+  }
+
+  .tableblock {text-align: left;
+    td, th {padding: .25em .5em;}
+    caption {.font-size(3); color: @orange; font-stlye: italic; text-align: left;}
+    thead {background: @lt-gray; border: 1px darken(@lt-gray, 10%) solid; .line-height(3.5); .font-size(2.5);}
+    tr {border-bottom: 1px darken(@lt-gray, 10%) solid;
+      &:nth-child(even) {background: lighten(@lt-gray, 5%);}
+    }
+    td, th {border-right: 1px darken(@lt-gray, 10%) solid;}
+    tbody {border-width: 0 0 1px 1px; border-color: darken(@lt-gray, 10%); border-style: solid; }
+  }
 }
 
 
