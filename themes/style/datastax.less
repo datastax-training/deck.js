@@ -96,10 +96,9 @@ h5 {.font-size(2.6); .line-height(3.5);}
 
 
   // List Items with cool node icons
-  ul {margin: .5em .5em 1em .5em;
-    li {padding-left: 1.2em;.font-size(2.5); .line-height(3.2); list-style-type: none;
-      &:before {content: "\e637";font-family: 'datastax'; display: inline-block; width: 1.2em; margin-left: -1.2em; .font-size(1.8); color: @base;}
-      ul {margin: .5em;}
+  ul {margin: .5em .5em 1em 1.5em;
+    li {.font-size(2.5); .line-height(3.2); list-style-type: disc; list-style-position: inside;
+      ul {margin: .5em .5em 1em 1.5em;}
     }
   }
 
