@@ -35,20 +35,22 @@ h5 {.font-size(2.6); .line-height(3.5);}
 .deck-slide-scaler {width: 100vw;}
 .slide {.border-box; width: 100vw; .flex-display; .align-items(stretch);
   // Title Slide
-  &#title-slide {background: url(images/blue.svg); background-size: cover; color: white; .align-items(center);
-    h1, h2, h3, h4, h5, h6, p {text-align: left; color: white;}
-  }
+  &#title-slide, &.transition-blue {background: url(images/blue-geometric.svg); background-size: cover; color: white; .align-items(center);}
   // Slides between sections
-  &.transition {color: white; .align-items(center);
-
+  &.transition-green {background: url(images/green-geometric.svg); background-size: cover; color: white; .align-items(center);}
+  &.transition-purple {background: url(images/purple-geometric.svg); background-size: cover; color: white; .align-items(center);}
+  &.transition-orange {background: url(images/orange-geometric.svg); background-size: cover; color: white; .align-items(center);}
+  &#title-slide, &.transition-blue, &.transition-green, &.transition-purple, &.transition-orange {
+    h1, h2, h3, h4, h5, h6, p {text-align: left; color: white;}
+    h2 {
+      +.paragraph {
+        p {
+          strong {color: @white;}
+        }
+      }
+    }
   }
-
-
-  // Stacked
-  &.stacked {}
-  // Full Image
-  &.image {}
-
+ 
   // Background colors for slides
   &.blue {background: @blue;}
   &.orange {background: @orange;}
