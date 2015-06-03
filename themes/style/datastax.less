@@ -17,7 +17,7 @@ a {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
-h1 {.font-size(7.2); .line-height(8); margin-bottom: 2rem;}
+h1 {.font-size(7.2);  .line-height(8); margin-bottom: 2rem;}
 h2 {.font-size(4.2); .line-height(5); margin-bottom: 1rem;}
 h3 {.font-size(3.8); .line-height(4.2); margin-bottom: .75rem;}
 h4 {.font-size(3); .line-height(3.8);}
@@ -32,15 +32,10 @@ h5 {.font-size(2.6); .line-height(3.5);}
 .csstransforms .deck-container.deck-scale:not(.deck-menu) > .slide {padding-bottom: 75px;}
 
 // Slide Layouts
-.deck-slide-scaler {width: 100vw;}
-.slide {.border-box; width: 100vw; .flex-display; .align-items(stretch);
+// .deck-slide-scaler {width: 100vw;}
+.slide {.border-box; width: 100vw; 
   // Title Slide
-  &#title-slide, &.transition-blue {background: url(images/blue-geometric.svg); background-size: cover; color: white; .align-items(center);}
-  // Slides between sections
-  &.transition-green {background: url(images/green-geometric.svg); background-size: cover; color: white; .align-items(center);}
-  &.transition-purple {background: url(images/purple-geometric.svg); background-size: cover; color: white; .align-items(center);}
-  &.transition-orange {background: url(images/orange-geometric.svg); background-size: cover; color: white; .align-items(center);}
-  &#title-slide, &.transition-blue, &.transition-green, &.transition-purple, &.transition-orange {
+  &#title-slide, &.transition-blue, &.transition-green, &.transition-purple, &.transition-orange {.flex-display;
     h1, h2, h3, h4, h5, h6, p {text-align: left; color: white;}
     h2 {
       +.paragraph {
@@ -50,6 +45,12 @@ h5 {.font-size(2.6); .line-height(3.5);}
       }
     }
   }
+  &#title-slide, &.transition-blue {background: url(images/blue-geometric.svg); background-size: cover; color: white; .align-items(center);}
+  // Slides between sections
+  &.transition-green {background: url(images/green-geometric.svg); background-size: cover; color: white; .align-items(center);}
+  &.transition-purple {background: url(images/purple-geometric.svg); background-size: cover; color: white; .align-items(center);}
+  &.transition-orange {background: url(images/orange-geometric.svg); background-size: cover; color: white; .align-items(center);}
+  
  
   // Background colors for slides
   &.blue {background: @blue;}
@@ -68,7 +69,7 @@ h5 {.font-size(2.6); .line-height(3.5);}
     h1 {margin-bottom: 3rem;}
   }
   h1 {color: @blue; font-weight: bold;}
-  h2 {color: @blue; .font-size(7.2); .line-height(8); margin-bottom: 2rem; font-weight: bold;
+  h2 {color: @blue; .font-size(7.2); .line-height(7.6); margin-bottom: 2rem; font-weight: bold;
     +.paragraph {
       p {
         strong {color: @orange; font-weight: 300; .font-size(4.2); .line-height(5); margin-bottom: 1rem;}
@@ -101,7 +102,7 @@ h5 {.font-size(2.6); .line-height(3.5);}
 
   // List Items with cool node icons
   ul {margin: .5em .5em 1em 1.5em;
-    li {.font-size(3.5); .line-height(3.8); list-style-type: disc; list-style-position: inside;
+    li {.font-size(3.5);  list-style-type: disc; list-style-position: outside;
       ul {margin: .5em .5em 1em 1.5em;}
     }
   }

@@ -70,6 +70,14 @@
   @pxValue: (@sizeValue * 10);
   font-size: ~"@{pxValue}px"; 
   font-size: ~"@{remValue}rem";
+  font-size: ~"@{sizeValue}vh";
+}
+
+.res-font-size(@sizeValue) {
+  @vwValue: @sizeValue;
+  font-size: 1vmin;
+  font-size: ~"@{vwValue}vh";
+
 }
 
 .line-height(@sizeValue) {
