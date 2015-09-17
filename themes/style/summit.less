@@ -1,6 +1,6 @@
 @import "reset.css";
 @import "font.css";
-@import "mixins.less";
+@import "mixins-fall.less";
 
 // Global Styles
 html {font-size: 62.5%;}
@@ -26,7 +26,8 @@ h5 {.font-size(2.6); .line-height(3.5);}
 
 // Deck Container Overrides
 .deck-container {font-weight: 300;
-  >.slide {padding: 75px;}
+  >.slide {padding: 75px;
+    background: url(images/bg-summit-logo.svg) top right no-repeat; background-size: cover; } 
 }
 // To override the need to modify the padding if there is not a class on the body.
 .csstransforms .deck-container.deck-scale:not(.deck-menu) > .slide {padding-bottom: 75px;}
@@ -45,11 +46,21 @@ h5 {.font-size(2.6); .line-height(3.5);}
       }
     }
   }
-  &#title-slide, &.transition-blue {background: url(images/blue-geometric.svg); background-size: cover; color: white; .align-items(center);}
+  &#title-slide, &.transition-blue {background: url(images/bg-iot-roadmap.svg); background-size: cover; color: white; .align-items(flex-end);}
+  &#title-slide {
+    padding: 0;
+    h1 {
+      width: 100%;
+      background: @blue;
+      text-align: center;
+      padding: 1em 0;
+    }
+    .deck-slide-scaler {display: block; width: 100%;}
+  }
   // Slides between sections
-  &.transition-green {background: url(images/green-geometric.svg); background-size: cover; color: white; .align-items(center);}
-  &.transition-purple {background: url(images/purple-geometric.svg); background-size: cover; color: white; .align-items(center);}
-  &.transition-orange {background: url(images/orange-geometric.svg); background-size: cover; color: white; .align-items(center);}
+  &.transition-green {background: url(images/bg-iot-blue.svg); background-size: cover; color: white; .align-items(center);}
+  &.transition-purple {background: url(images/bg-iot-purple.svg); background-size: cover; color: white; .align-items(center);}
+  &.transition-orange {background: url(images/bg-iot-orange.svg); background-size: cover; color: white; .align-items(center);}
   
  
   // Background colors for slides
@@ -69,7 +80,7 @@ h5 {.font-size(2.6); .line-height(3.5);}
     h1 {margin-bottom: 3rem;}
   }
   h1 {color: @blue; font-weight: bold;}
-  h2 {color: @blue; .font-size(7.2); .line-height(7.6); margin-bottom: 2rem; font-weight: bold;
+  h2 {color: @blue; .font-size(7.2); .line-height(7.6); margin-bottom: 2rem; font-weight: bold; padding-right: 3em;
     +.paragraph {
       p {
         strong {color: @orange; font-weight: 300; .font-size(4.2); .line-height(5); margin-bottom: 1rem;}
@@ -174,45 +185,44 @@ h5 {.font-size(2.6); .line-height(3.5);}
 
 
 
-
-// Header
-.deck-header {background: @base; position: fixed; top: 0vh; width: 100%; height: 50px; z-index: 5000; color: @white; .flex-display; .font-size(1.4); .align-items(center);
-  .flex-element {.flex(1 0 auto); margin: .5em 1em;
+// Footer
+footer {background: @blue; position: fixed; bottom: 0vh; width: 100%; height: 50px; z-index: 5000; color: @white; .flex-display; .font-size(1.4); .align-items(center);
+  .flex-element-summit {.flex(1 0 auto); margin: .5em 1em;
+    &.deck-progress {display: none;}
     &.deck-brand {height: 35px;
       a {background: url(images/brand-white.svg) no-repeat center right; text-indent: -9000px; display: block; margin: auto; height: 100%; .justify-content(flex-end);}
     }
+    .course-title {font-weight: 700;}
   }
 }
 
-// Footer
-footer {background: @base; position: fixed; bottom: 0vh; width: 100%; height: 50px; z-index: 5000; color: @white; .flex-display; .font-size(1.4); .align-items(center);
-  .flex-element {.flex(1 0 auto); margin: .5em 1em;
-    &.deck-progress {text-align: right;
-      .deck-title {font-weight: 700; margin-left: 20px;}
-    }
+
+// Hide these things on the Summit theme
+
+.deck-notice, .deck-header{
+  display: none;
+}
+
+.deck-header-summit {position: fixed; top: 0vh; width: 100%; height: 6px; z-index: 5000; color: @white; .flex-display; .font-size(1.4); .align-items(center);
+    .deck-progressbar {
+    position:absolute;
+    left:0;
+    right:0;
+    top:0px;
+    height:6px;
+    background:@lt-gray;
   }
-}
 
-// Progress bar?
-
-.deck-progressbar {
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:50px;
-  height:6px;
-  background:@lt-gray;
-}
-
-.deck-progressbar span {
-  position:absolute;
-  left:0;
-  top:0;
-  height:6px;
-  background: @orange;
-  width: 0px;
-  .border-radius(0 3px 3px 0);
-  .transition(width, 500ms, ease-in-out);
+  .deck-progressbar span {
+    position:absolute;
+    left:0;
+    top:0;
+    height:6px;
+    background: @green;
+    width: 0px;
+    .border-radius(0 3px 3px 0);
+    .transition(width, 500ms, ease-in-out);
+  }
 }
 
 // Things I'm not sure we need right now:
@@ -301,6 +311,3 @@ a:hover, a:focus {
 .deck-menu .deck-current, .no-touch .deck-menu .slide:hover {
   // background: #ddf;
 }
-
-// Hide these things from other themes
-.deck-header-summit, .flex-element-summit {display: none;}
