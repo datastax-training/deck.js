@@ -26,7 +26,7 @@ h5 {.font-size(2.6); .line-height(3.5);}
 
 // Deck Container Overrides
 .deck-container {font-weight: 300;
-  >.slide {padding: 75px;}
+  >.slide {padding: 75px;background: url(images/bg-white-logo.svg) top right no-repeat; background-size: cover; }
 }
 // To override the need to modify the padding if there is not a class on the body.
 .csstransforms .deck-container.deck-scale:not(.deck-menu) > .slide {padding-bottom: 75px;}
@@ -45,11 +45,12 @@ h5 {.font-size(2.6); .line-height(3.5);}
       }
     }
   }
-  &#title-slide, &.transition-blue {background: url(images/blue-geometric.svg); background-size: cover; color: white; .align-items(center);}
+  &#title-slide, &.transition-blue {background: url(images/bg-pattern-blue.svg); background-size: cover; color: white; .align-items(center);}
   // Slides between sections
-  &.transition-green {background: url(images/green-geometric.svg); background-size: cover; color: white; .align-items(center);}
-  &.transition-purple {background: url(images/purple-geometric.svg); background-size: cover; color: white; .align-items(center);}
-  &.transition-orange {background: url(images/orange-geometric.svg); background-size: cover; color: white; .align-items(center);}
+  &.transition-green {background: url(images/bg-pattern-lime.svg); background-size: cover; color: white; .align-items(center);}
+  &.transition-purple {background: url(images/bg-pattern-purple.svg); background-size: cover; color: white; .align-items(center);}
+  &.transition-orange {background: url(images/bg-pattern-orange.svg); background-size: cover; color: white; .align-items(center);}
+  &.transition-azure {background: url(images/bg-pattern-azure.svg); background-size: cover; color: white; .align-items(center);}
   
  
   // Background colors for slides
@@ -190,6 +191,10 @@ footer {background: @base; position: fixed; bottom: 0vh; width: 100%; height: 50
     &.deck-progress {text-align: right;
       .deck-title {font-weight: 700; margin-left: 20px;}
     }
+     &.deck-brand {height: 35px;
+      a {background: url(images/brand-white.svg) no-repeat center right; text-indent: -9000px; display: block; margin: auto; height: 100%; .justify-content(flex-end);}
+    }
+    .course-title {font-weight: 700;}
   }
 }
 
@@ -209,7 +214,7 @@ footer {background: @base; position: fixed; bottom: 0vh; width: 100%; height: 50
   left:0;
   top:0;
   height:6px;
-  background: @orange;
+  background: @green;
   width: 0px;
   .border-radius(0 3px 3px 0);
   .transition(width, 500ms, ease-in-out);
