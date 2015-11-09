@@ -66,12 +66,15 @@ var Animation = {
       'image': canvas.viewbox.image(filename, width, height),
       'initPosition': function() {
         if(initiallyVisible) {
+          //console.log("SHOWING " + filename);
           canvas.svg[filename].image.show();
         }
         else {
+          //console.log("HIDING " + filename);
           canvas.svg[filename].image.hide();
         }
-        this['image'].move(x, y)
+        //console.log("MOVING TO ("+x+","+y+")");
+        this['image'].move(x, y);
       }
     };
 
