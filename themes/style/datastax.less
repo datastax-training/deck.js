@@ -35,7 +35,7 @@ h5 {.font-size(2.6); .line-height(3.5);}
 // .deck-slide-scaler {width: 100vw;}
 .slide {.border-box; width: 100vw; 
   // Title Slide
-  &#title-slide, &.transition-blue, &.transition-green, &.transition-purple, &.transition-orange { height: 100vh;.flex-display;
+  &#title-slide, &.transition-blue, &.transition-green, &.transition-lime, &.transition-azure, &.transition-purple, &.transition-orange { height: 100vh;.flex-display;
     h1, h2, h3, h4, h5, h6, p {text-align: left; color: white;}
     h2 {
       +.paragraph {
@@ -45,21 +45,24 @@ h5 {.font-size(2.6); .line-height(3.5);}
       }
     }
   }
-  &#title-slide, &.transition-blue {background: url(images/bg-pattern-blue.svg); background-size: cover; color: white; .align-items(center);}
+  &#title-slide, &.transition-blue {background: url(images/bg-pattern-blue.png) top right; background-size: cover; color: white; .align-items(center);}
   // Slides between sections
-  &.transition-green {background: url(images/bg-pattern-lime.svg); background-size: cover; color: white; .align-items(center);}
-  &.transition-purple {background: url(images/bg-pattern-purple.svg); background-size: cover; color: white; .align-items(center);}
-  &.transition-orange {background: url(images/bg-pattern-orange.svg); background-size: cover; color: white; .align-items(center);}
-  &.transition-azure {background: url(images/bg-pattern-azure.svg); background-size: cover; color: white; .align-items(center);}
+  &.transition-green {background: url(images/bg-pattern-green.png) top right; background-size: cover; color: white; .align-items(center);}
+  &.transition-lime {background: url(images/bg-pattern-lime.png) top right; background-size: cover; color: white; .align-items(center);}
+  &.transition-purple {background: url(images/bg-pattern-purple.png) top right; background-size: cover; color: white; .align-items(center);}
+  &.transition-orange {background: url(images/bg-pattern-orange.png) top right; background-size: cover; color: white; .align-items(center);}
+  &.transition-azure {background: url(images/bg-pattern-azure.png) top right; background-size: cover; color: white; .align-items(center);}
   
  
   // Background colors for slides
   &.blue {background: @blue;}
+  &.azure {background: @azure;}
   &.orange {background: @orange;}
   &.green {background: @green;}
+  &.lime {background: @lime;}
   &.purple {background: @purple;}
   &.gray {background: @gray;}
-  &.blue, &.orange, &.green, &.purple, &.gray, &#title-slide {
+  &.blue, &.azure, &.orange, &.green, &.lime, &.purple, &.gray, &#title-slide {
     h1, h2, h3, h4, h5, h6 {
       color: @white;
     }
@@ -95,6 +98,7 @@ h5 {.font-size(2.6); .line-height(3.5);}
   .blue {color: @blue;}
   .orange {color: @orange;}
   .green {color: @green;}
+  .lime {color: @lime;}
   .purple {color: @purple;}
   .gray {color: @gray;}
   .white {color: @lt-gray;}
@@ -214,7 +218,7 @@ footer {background: @base; position: fixed; bottom: 0vh; width: 100%; height: 50
   left:0;
   top:0;
   height:6px;
-  background: @green;
+  background: @lime;
   width: 0px;
   .border-radius(0 3px 3px 0);
   .transition(width, 500ms, ease-in-out);
