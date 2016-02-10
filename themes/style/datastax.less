@@ -112,6 +112,11 @@ h5 {.font-size(2.6); .line-height(3.5);}
     }
   }
 
+  // Ensure that trailing redundant paragraphs as per:
+  // https://github.com/datastax-training/curriculum/issues/176
+  // are not displayed as they cause unecessary spacing
+  ul li p:last-child { display: none; }
+
   // Images
   .image, .imageblock {
     img {
