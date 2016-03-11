@@ -18,18 +18,28 @@ var Animation = {
     // work.
     var slideID = $('#' + canvasID).parents('.slide').attr('id');
 
-    this.canvas[canvasID] = {
-      'viewbox': SVG(canvasID).viewbox(0,
-                                       0,
-                                       this.canvasWidth,
-                                       this.canvasHeight),
-      'svg': {},
-      'animation': [],
-      'animationIndex': 0,
-      'slide': slideID
-    };
+    // Might be registering a slide not in this HTML file (for good reasons;
+    // trust me), so check before actually trying to register.
+    if(slideID) {
+      this.canvas[canvasID] = {
+        'viewbox': SVG(canvasID).viewbox(0,
+                                         0,
+                                         this.canvasWidth,
+                                         this.canvasHeight),
+        'svg': {},
+        'animation': [],
+        'animationIndex': 0,
+        'slide': slideID
+      };
 
-    this.canvasBySlide[slideID] = this.canvas[canvasID];
+      this.canvasBySlide[slideID] = this.canvas[canvasID];
+
+      return this.canvas[canvasID];
+    }
+    else {
+      console.log('CANVAS ID ' + canvasID + ' not found. Not registering.');
+      return null;
+    }
   },
 
   /**
@@ -62,25 +72,31 @@ var Animation = {
     }
 
     var canvas = this.canvas[canvasID];
-    canvas.svg[filename] = {
-      'image': canvas.viewbox.image(filename, width, height),
-      'initPosition': function() {
-        if(initiallyVisible) {
-          //console.log("SHOWING " + filename);
-          canvas.svg[filename].image.show();
+    if(canvas) {
+      canvas.svg[filename] = {
+        'image': canvas.viewbox.image(filename, width, height),
+        'initPosition': function() {
+          if(initiallyVisible) {
+            //console.log("SHOWING " + filename);
+            canvas.svg[filename].image.show();
+          }
+          else {
+            //console.log("HIDING " + filename);
+            canvas.svg[filename].image.hide();
+          }
+          //console.log("MOVING TO ("+x+","+y+")");
+          this['image'].move(x, y);
         }
-        else {
-          //console.log("HIDING " + filename);
-          canvas.svg[filename].image.hide();
-        }
-        //console.log("MOVING TO ("+x+","+y+")");
-        this['image'].move(x, y);
-      }
-    };
+      };
 
-    canvas.svg[filename].initPosition();
+      canvas.svg[filename].initPosition();
 
-    return canvas.svg[filename];
+      return canvas.svg[filename];
+    }
+    else {
+      console.log('CANVAS ID ' + canvasID + ' not found. Not registering ' + filename)
+      return null;
+    }
   },
 
   /**
@@ -92,7 +108,10 @@ var Animation = {
    *
    */
   'addAnimation': function(canvasID, steps) {
-    this.canvas[canvasID].animation = this.canvas[canvasID].animation.concat(steps);
+    console.log('ADDING ANIMATION ON ' + canvasID)
+    if(this.canvas[canvasID]) {
+      this.canvas[canvasID].animation = this.canvas[canvasID].animation.concat(steps);
+    }
   },
 
 
@@ -130,6 +149,7 @@ var Animation = {
    *  });
    */
   animate: function(definition) {
+    console.log('animate()')
 		$(document).bind('deck.init', this.withThis(definition));
   },
 }
