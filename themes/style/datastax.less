@@ -108,9 +108,17 @@ h5 {.font-size(2.6); .line-height(3.5);}
   // List Items with cool node icons
   ul {margin: .5em .5em 1em 1.5em;
     li {.font-size(3.5);  list-style-type: disc; list-style-position: outside;
-      ul {margin: .5em .5em 1em 1.5em;}
+      ul {margin: .5em .5em 0 1.5em;}
     }
   }
+
+  // Ensure that trailing redundant paragraphs as per:
+  // https://github.com/datastax-training/curriculum/issues/176
+  // are not displayed as they cause unecessary spacing
+  ul li p { margin: 0; }
+  ul li p:last-child { display: none; }
+  // Indented items have a different bullet for more clarity
+  ul li ul li { list-style-type:circle; padding: 0; }
 
   // Images
   .image, .imageblock {
@@ -129,6 +137,14 @@ h5 {.font-size(2.6); .line-height(3.5);}
     &.left {margin: .5em auto .5em 0; display: inline-block; padding: .5em;}
     &.right {margin: .5em 0 .5em auto; display: inline-block; padding: .5em;}
   }
+
+  // Code block currently has no margin which looks a little crappy
+  .listingblock {
+    margin-top: 0.25em;
+    margin-bottom: 0.5em;
+  }
+
+
   // Slide Notes
   .notes {position:absolute;z-index:1000;background: @blue90;color: @white;width: 100vw;height: 100vh;top: 0px;left: 0px;padding: 100px;.font-size(5); .border-box; overflow: scroll;
     li {
@@ -318,3 +334,4 @@ a:hover, a:focus {
 
 // Hide these things from other themes
 .deck-header-summit, .flex-element-summit {display: none;}
+
